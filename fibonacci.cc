@@ -8,7 +8,7 @@ int fib(int n){
 	}else{
 		return fib(n-1) + fib(n-2);
 	}	
-}
+} \\ funcao recursiva baseada na função de fibonacci
 
 int main(){
 int n;
