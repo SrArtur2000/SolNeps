@@ -15,7 +15,7 @@ bool eh_primo(int x){
 	}else{
 		return false;
 	}
-}
+}\\ Criar uma condição para averiguar se tal numero é primo. Usei a regra pegando pela raiz quadrada para cortar o tempo
 
 int main(){
 	int x;
