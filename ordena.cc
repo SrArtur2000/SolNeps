@@ -9,8 +9,8 @@ int main(){
 
 	for(int i = 0 ; i < n ; i++){
 		cin>>v[i];
-	}
-	sort(v, v+n);
+	}// entra com os valores do vetor
+	sort(v, v+n); // ordena o vetor
 
 	for(int j = 0 ; j < n ; j++){
 		if(j != n-1){
@@ -18,7 +18,7 @@ int main(){
 		}else if(j == n-1){
 			cout<<v[j];
 		}
-	}
+	}// imprime o vetor. Deixando o ultimo número sem espaço no final
 
 
 
