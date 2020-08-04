@@ -10,7 +10,7 @@ int contagem[9];
 
 for(int a = 0 ; a < 10 ; a++){
 	contagem[a] = 0;
-}
+} \\ Coloca os valores da contagem dos números de 0 até 9 em 0.
 
 for (int i = 0 ; i < N ; i++){
 	cin>>A;
@@ -55,7 +55,8 @@ for (int i = 0 ; i < N ; i++){
 			contagem[9] = contagem[9] + 1;
 		}
 	}
-}
+}\\ cada um desses else if ou if servem para aumentar em 1 a contagem de cada número da string 
+	\\ao ver que a string possui esse numero em dada posição
 
 for(int k = 0 ; k < 10 ; k++){
 	if(k != 9){
