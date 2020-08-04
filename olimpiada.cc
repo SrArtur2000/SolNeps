@@ -3,10 +3,10 @@
 using namespace std;
 
 struct Pais{
-	int N;
-	int O;
-	int P;
-	int B;
+	int N; // Numeração do país
+	int O; // Medalhas de ouro do país
+	int P; // Medalhas de Prata do país
+	int B; // Medalhas de Bronze do país
 };
 
 bool comparapais(Pais a, Pais b){
@@ -21,21 +21,21 @@ bool comparapais(Pais a, Pais b){
   		return a.N < b.N;
   	}
   }
- }
+ }//Ordena o vetor, priorizando medalhas de ouro, depois medalhas de prata, depois medalhas de bronze, depois a ordem crescente da numeração
 
 
 int main(){
 	int m;
 	int p;
 	int medalha = 0;
-	cin>>p>>m;
+	cin>>p>>m; // Entra com o número de países e de modalidades
 	Pais pais[1000];
 	for(int k = 1 ; k <= p ; k++){
 		pais[k].N = k;
 		pais[k].P = 0;
 		pais[k].O = 0;
 		pais[k].B = 0;
-	}
+	} // Inicia cada país sem medalhas
 
 
 for(int j = 0 ; j < m ; j++){	
@@ -49,11 +49,11 @@ for(int j = 0 ; j < m ; j++){
 		}if(i == 3){
 			pais[medalha].B += 1;
 		}
-	}
+	}// Entra com os países que receberam as medalhas. Sempre a primeira é a de ouro, depois prata, depois bronze. 
 }
 
 
-sort(pais+1, pais + p + 1, comparapais);
+sort(pais+1, pais + p + 1, comparapais); // ordena o vetor
 
 
 
@@ -63,7 +63,7 @@ for(int x = 1 ; x <= p ; x++){
 	}else{
 		cout<<pais[p].N;
 	}
-}
+}// imprime as numerações dos países ganhadores
 
 
 
