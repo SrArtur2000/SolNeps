@@ -12,7 +12,7 @@ int main(){
 
 	for(int i = 1 ; i <= n ; i++){
 		cin>>altura[i];
-	}
+	} // coloca os valores das alturas
 
 
 
@@ -22,12 +22,12 @@ int main(){
 				total += altura[j] - m;
 				altura[j+1] += m - altura[j];
 				altura[j] = m;
-
+			// caso a altura seja maior que o valor desejado, adiciona a diferença pro total, abaixa a seguinte e ajusta a altura
 			}if(altura[j] < m){
 				total += m - altura[j];
 				altura[j+1] += m - altura[j];
 				altura[j] = m;
-			}
+			}// similar, porém caso altura seja menor
 		}
 	}
 
