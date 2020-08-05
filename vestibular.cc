@@ -9,14 +9,14 @@ string gabarito;
 string resposta;
 
 cin>>N;
-cin>>gabarito>>resposta;
+cin>>gabarito>>resposta;// adiciona o gabarito da prova e as notas
 
 for(int i = 0 ; i < gabarito.size() ; i++){
 	if(gabarito[i] == resposta[i]){
 		nota = nota + 1;
 	}
-}
-cout<<nota<<endl;
+}// adiciona 1 para a nota cada vez que o gabarito e a resposta forem iguais
+cout<<nota<<endl;// imprime nota
 
 return 0;
 }
