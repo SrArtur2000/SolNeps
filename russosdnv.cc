@@ -3,8 +3,8 @@
 using namespace std;
 
 
-int soma_vetor(int n, int v[]){
-	int contagem = 0;
+long long soma_vetor(int n, int v[]){
+	long long contagem = 0;
 	for(int i = 0 ; i < n ; i++){
 		contagem += v[i];
 	}
@@ -40,10 +40,6 @@ int main(){
 	} // Verifica se o valor seguinte se o menor possivel, de tal forma que n seja menor que o anterior.
 
 	sort(comp, comp + n); // Ordena o vetor comparação
-
-	//for(int a = 0 ; a < n ; a++){
-	//	cout<<v[a]<<" "<<comp[a]<<endl;
-	//}
 
 	for(int k = 0 ; k < n ; k++){
 		if(comp[k] == v[k]){
