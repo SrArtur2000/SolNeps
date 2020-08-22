@@ -39,21 +39,21 @@ int bb(int x){
 }
 
 int main(){
-	cin>>n>>m;
+	cin>>n>>m; // Insere quantos intervalos e quantos participantes
 	faixa[0] = 0;
 
 	for(int i = 1 ; i < n ; i++){
 		cin>>faixa[i];
-	}
+	} // Insere os valores dos intervalos
 	for(int j = 0 ; j < n ; j++){
 		cin>>pont[j];
-	}
+	} // Insere a pontuaçao referente a cada intervalo
 	for(int k = 0 ; k < m ; k++){
 		cin>>F[k];
-	}
+	} // Insere as forças de cada participante
 	for(int a = 0 ; a < m ; a++){
 		cout<<pont[bb(F[a])]<<" ";	
-	}
+	}// Imprime a pontuaçao de cada participante
 
 	return 0;
 }
