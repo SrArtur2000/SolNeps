@@ -4,13 +4,13 @@
 
 		int n, k, m;
 		int a[1010];
-		int f[1010];
+		long long f[1010];
 
 
 	int rec(int k){
 		for(int i = n; i < k ; i++){
 			for(int j = 0; j < n; j++){
-				f[i] += (a[j]*f[i-j-1]);
+				f[i] += (a[j]*f[i-j-1])%m;
 			}
 			if(f[i] >= m){
 				f[i] = f[i]%m;
