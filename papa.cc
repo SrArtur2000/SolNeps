@@ -7,35 +7,36 @@
 	struct caixa{
 		int P;
 		int R;
-		int c;
+		int c[1010];
 	};
 
 	caixa C[1010];
+	int contagem[1010];
 
 	bool comparacaixa(caixa a, caixa b){
-		if(a.R != b.R){
+		if(a.R - a.P != b.R - b.P){
+			return a.R - a.P < b.R - b.P;
+		}else if(a.R - a.P == b.R - a.P){
 			return a.R < b.R;
-		}else if(a.R == b.R){
-			return a.P < b.P;
 		}
-	} // ordena pelas menores resistencias. Caso empate, pelas menores massas
+	} // ordena pela capacidade - peso, depois pela resistencia. Caso empate nos dois, os pesos são consequentemente iguais
 
 	int dp(int n){
-		int contagem = 0;
 		int peso = 0;
-
-		for(int i = 0 ; i < n; i++){
-			sort(C + i, C + n, comparacaixa);
-			if(C[i].c >= 0){ // Se a capacidade atual é maior q 0, a caixa entra no topo da torre
-			peso += C[i].P; // O peso da torre recebe o valor da caixa que entrou
-			contagem += 1; // aumenta a contagem da torre
-			for(int j = i + 1 ; j < n ; j++){
-				C[j].c -= C[i].P; // todas as possiveis caixas para irem embaixo da caixa do topo perdem capacidade igual ao peso da caixa
-			}
+		for(int x = 0 ; x < n ; x++){ // Analisa a torre x partindo da caixa x
+			contagem[x] = 0;
+			for(int i = x ; i < n; i++){
+				if(C[i].c[x] >= 0){// Caso a caixa i suporte seu peso + a do resto da torre x
+				peso += C[i].P;
+				contagem[x] += 1;
+					for(int j = i + 1 ; j < n ; j++){ // Remova de cada caixa seguinte no vetor o peso da caixa recem adicionada
+						C[j].c[x] -= C[i].P;
+					}
+				}
 			}
 		}
-
-		return contagem;
+			sort(contagem, contagem + n); // ordena contagem
+		return contagem[n-1]; // pega a maior contagem
 	}
 
 
@@ -46,18 +47,15 @@
 		for(int i = 0 ; i < n ; i++){
 			cin>>C[i].P;
 			cin>>C[i].R;
-			C[i].c = C[i].R - C[i].P;
+			for(int j = 0 ; j < n ; j++){
+				C[i].c[j] = C[i].R - C[i].P;
+			}
+			
 		}
 
-		//for(int b = 0 ; b < n ; b++){
-		//	cout<<C[b].P<<" "<<C[b].R<<"\n";
-		//}
+		sort(C, C + n, comparacaixa);
 
-		//for(int a = 0 ; a < n ; a++){
-		//	cout<<C[a].P<<" "<<C[a].R<<"\n";
-		//}
-
-		cout<<dp(n)<<"\n";
+		cout<<dp(n);
 
 
 		return 0;
